@@ -1,0 +1,159 @@
+﻿<Window x:Class="TabelloneWPF.GestioneSquadreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gestione Squadre (18 Giocatori + Staff)" Height="880" Width="1000"
+        Background="#0F0A14" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="CONFIGURAZIONE SQUADRE (18 GIOCATORI + 3 STAFF)" Foreground="White" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+
+        <!-- Area centrale con le due squadre affiancate -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- SQUADRA 1 (CASA) -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Nome Squadra 1 (Casa):" Foreground="#007ACC" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="TxtNomeSquadra1" Height="30" Background="#1D1226" Foreground="White" Padding="5" VerticalContentAlignment="Center"/>
+                        <Button x:Name="BtnLogo1" Grid.Column="1" Content="Logo" Margin="5,0,0,0" Height="30" Click="BtnCaricaLogo1_Click" Loaded="BtnLogo_Loaded" Background="#2A1B3D" Foreground="White" ToolTip="Carica logo squadra 1"/>
+                    </Grid>
+
+                    <TextBlock Text="Rosa Squadra 1:" Foreground="#AAA" FontWeight="Bold" Margin="0,0,0,5"/>
+
+                    <!-- INTESTAZIONE DELLE COLONNE -->
+                    <Grid Margin="0,0,0,3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Vis." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ToolTip="Visibile sul tabellone"/>
+                        <TextBlock Grid.Column="1" Text="Lib." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ToolTip="Libero (Max 2)"/>
+                        <TextBlock Grid.Column="2" Text="Cap." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ToolTip="Capitano (Max 1)"/>
+                        <TextBlock Grid.Column="3" Text="N°" Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ToolTip="Numero maglia o Ruolo staff"/>
+                        <TextBlock Grid.Column="4" Text="Cognome" Foreground="#888" FontSize="11" FontWeight="Bold" Margin="3,0,0,0"/>
+                        <TextBlock Grid.Column="5" Text="Nome" Foreground="#888" FontSize="11" FontWeight="Bold" Margin="3,0,0,0"/>
+                    </Grid>
+
+                    <!-- LISTA GIOCATORI SQUADRA 1 -->
+                    <ItemsControl x:Name="ItemsRosa1">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="55"/>
+                                        <ColumnDefinition Width="112"/>
+                                        <ColumnDefinition Width="112"/>
+                                        <ColumnDefinition Width="30"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding Visualizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <CheckBox Grid.Column="1" IsChecked="{Binding IsLibero, UpdateSourceTrigger=PropertyChanged}" Checked="Libero_Checked" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding VisibilitaRuoli}"/>
+                                    <CheckBox Grid.Column="2" IsChecked="{Binding IsCapitano, UpdateSourceTrigger=PropertyChanged}" Checked="Capitano_Checked" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding VisibilitaRuoli}"/>
+
+                                    <TextBox Grid.Column="3" Text="{Binding Numero, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsStaff}" Width="50" Height="25" Background="#1D1226" Foreground="#007ACC" FontWeight="Bold" TextAlignment="Center" VerticalContentAlignment="Center"/>
+
+                                    <!-- Casella Cognome -->
+                                    <TextBox Grid.Column="4" Text="{Binding Cognome, UpdateSourceTrigger=PropertyChanged}" Width="108" Height="25" Background="#1D1226" Foreground="White" Padding="3,0" VerticalContentAlignment="Center"/>
+
+                                    <!-- Casella Nome -->
+                                    <TextBox Grid.Column="5" Text="{Binding Nome, UpdateSourceTrigger=PropertyChanged}" Width="108" Height="25" Background="#1D1226" Foreground="White" Padding="3,0" VerticalContentAlignment="Center"/>
+
+                                    <Button Grid.Column="6" Content="📷" Width="28" Height="25" Click="BtnCaricaFoto_Click" Loaded="BtnFoto_Loaded" Background="#2A1B3D" Foreground="White" ToolTip="Seleziona foto"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <!-- SQUADRA 2 (OSPITI) - Speculare -->
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Nome Squadra 2 (Ospiti):" Foreground="#D97706" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="TxtNomeSquadra2" Height="30" Background="#1D1226" Foreground="White" Padding="5" VerticalContentAlignment="Center"/>
+                        <Button x:Name="BtnLogo2" Grid.Column="1" Content="Logo" Margin="5,0,0,0" Height="30" Click="BtnCaricaLogo2_Click" Loaded="BtnLogo_Loaded" Background="#2A1B3D" Foreground="White" ToolTip="Carica logo squadra 2"/>
+                    </Grid>
+
+                    <TextBlock Text="Rosa Squadra 2:" Foreground="#AAA" FontWeight="Bold" Margin="0,0,0,5"/>
+
+                    <Grid Margin="0,0,0,3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="112"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Vis." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Lib." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="Cap." Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text="N°" Foreground="#888" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="4" Text="Cognome" Foreground="#888" FontSize="11" FontWeight="Bold" Margin="3,0,0,0"/>
+                        <TextBlock Grid.Column="5" Text="Nome" Foreground="#888" FontSize="11" FontWeight="Bold" Margin="3,0,0,0"/>
+                    </Grid>
+
+                    <ItemsControl x:Name="ItemsRosa2">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="55"/>
+                                        <ColumnDefinition Width="112"/>
+                                        <ColumnDefinition Width="112"/>
+                                        <ColumnDefinition Width="30"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding Visualizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <CheckBox Grid.Column="1" IsChecked="{Binding IsLibero, UpdateSourceTrigger=PropertyChanged}" Checked="Libero_Checked" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding VisibilitaRuoli}"/>
+                                    <CheckBox Grid.Column="2" IsChecked="{Binding IsCapitano, UpdateSourceTrigger=PropertyChanged}" Checked="Capitano_Checked" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding VisibilitaRuoli}"/>
+
+                                    <TextBox Grid.Column="3" Text="{Binding Numero, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsStaff}" Width="50" Height="25" Background="#1D1226" Foreground="#D97706" FontWeight="Bold" TextAlignment="Center" VerticalContentAlignment="Center"/>
+
+                                    <TextBox Grid.Column="4" Text="{Binding Cognome, UpdateSourceTrigger=PropertyChanged}" Width="108" Height="25" Background="#1D1226" Foreground="White" Padding="3,0" VerticalContentAlignment="Center"/>
+                                    <TextBox Grid.Column="5" Text="{Binding Nome, UpdateSourceTrigger=PropertyChanged}" Width="108" Height="25" Background="#1D1226" Foreground="White" Padding="3,0" VerticalContentAlignment="Center"/>
+
+                                    <Button Grid.Column="6" Content="📷" Width="28" Height="25" Click="BtnCaricaFoto_Click" Loaded="BtnFoto_Loaded" Background="#2A1B3D" Foreground="White" ToolTip="Seleziona foto"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <Button Grid.Row="2" Content="Salva e Aggiorna" Click="BtnSalva_Click" Background="#007ACC" Foreground="White" FontWeight="Bold" Height="45" Margin="0,15,0,0"/>
+    </Grid>
+</Window>

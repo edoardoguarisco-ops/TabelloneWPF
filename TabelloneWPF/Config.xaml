@@ -1,0 +1,100 @@
+﻿<Window x:Class="TabelloneWPF.FinestraConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Configurazione Risorse" Height="650" Width="680"
+        Background="#120D1A" WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- TAB CONTROL PRINCIPALE -->
+        <TabControl Grid.Row="0" Background="#1D1226" Foreground="White" BorderBrush="#332244">
+
+            <!-- TAB 1: SPONSOR -->
+            <TabItem Header="Sponsor" Background="#1D1226" Foreground="White" Padding="12,6">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Lista degli sponsor caricati -->
+                    <ListBox x:Name="ListSponsor" Grid.Row="0" Background="#120D1A" Foreground="White" BorderBrush="#332244" FontSize="13" Margin="0,0,0,10"/>
+
+                    <!-- Pulsanti Gestione Sponsor -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Aggiungi Sponsor" Click="BtnAggiungiSponsor_Click" Width="130" Height="32" Background="#007ACC" Foreground="White" FontWeight="Bold" Margin="0,0,8,0"/>
+                        <Button Content="Rimuovi Selezionato" Click="BtnRimuoviSponsor_Click" Width="140" Height="32" Background="#662222" Foreground="White" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 2: IMMAGINI DEF -->
+            <TabItem Header="Immagini def" Background="#1D1226" Foreground="White" Padding="12,6">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="10">
+                        <StackPanel>
+                            <TextBlock Text="Gestione Immagini Predefinite di Fallback (Cartella data/DEF):" Foreground="#AAA" FontWeight="Bold" Margin="0,0,0,12"/>
+
+                            <!-- 1. Foto Atleta Default -->
+                            <GroupBox Header="Foto Atleta Default" Foreground="#A855F7" FontWeight="Bold" FontSize="12" Padding="10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="TxtFotoAtletaDefault" Grid.Column="0" IsReadOnly="True" Background="#120D1A" Foreground="#AAA" VerticalContentAlignment="Center" Padding="5" Margin="0,0,8,0"/>
+                                    <Button Grid.Column="1" Content="Carica" Click="BtnCaricaFotoAtletaDefault_Click" Height="30" Background="#2A1B3D" Foreground="White" FontWeight="Bold"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- 2. Foto Staff Default -->
+                            <GroupBox Header="Foto Staff Default" Foreground="#A855F7" FontWeight="Bold" FontSize="12" Padding="10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="TxtFotoStaffDefault" Grid.Column="0" IsReadOnly="True" Background="#120D1A" Foreground="#AAA" VerticalContentAlignment="Center" Padding="5" Margin="0,0,8,0"/>
+                                    <Button Grid.Column="1" Content="Carica" Click="BtnCaricaFotoStaffDefault_Click" Height="30" Background="#2A1B3D" Foreground="White" FontWeight="Bold"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- 3. Foto Arbitro Default -->
+                            <GroupBox Header="Foto Arbitro Default" Foreground="#A855F7" FontWeight="Bold" FontSize="12" Padding="10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="TxtFotoArbitroDefault" Grid.Column="0" IsReadOnly="True" Background="#120D1A" Foreground="#AAA" VerticalContentAlignment="Center" Padding="5" Margin="0,0,8,0"/>
+                                    <Button Grid.Column="1" Content="Carica" Click="BtnCaricaFotoArbitroDefault_Click" Height="30" Background="#2A1B3D" Foreground="White" FontWeight="Bold"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- 4. Logo Default -->
+                            <GroupBox Header="Logo Default" Foreground="#A855F7" FontWeight="Bold" FontSize="12" Padding="10" Margin="0,0,0,5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="TxtLogoDefault" Grid.Column="0" IsReadOnly="True" Background="#120D1A" Foreground="#AAA" VerticalContentAlignment="Center" Padding="5" Margin="0,0,8,0"/>
+                                    <Button Grid.Column="1" Content="Carica" Click="BtnCaricaLogoDefault_Click" Height="30" Background="#2A1B3D" Foreground="White" FontWeight="Bold"/>
+                                </Grid>
+                            </GroupBox>
+
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+        </TabControl>
+
+        <!-- Pulsante Chiudi in basso comune -->
+        <Button Grid.Row="1" Content="Chiudi" Click="BtnChiudi_Click" Width="100" Height="30" Background="#333" Foreground="White" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

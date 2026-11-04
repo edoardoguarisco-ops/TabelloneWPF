@@ -1,0 +1,6 @@
+# Copilot Instructions
+
+## Linee guida del progetto
+- Nel progetto TabelloneWPF abbiamo completato un refactoring incrementale: modelli separati in Models (GiocatoreItem, ConfigClassXML, ConfigurazioneColoriModel), ConfigurazioneService per serializzazione e percorsi XML, PunteggioService per punti/set/storico, AnimazioniService per stato e cancellazione di presentazione rose e sponsor. È stato aggiunto il progetto TabelloneWPF.Tests con MSTest: 7 test superati tramite dotnet test. La build riesce; restano circa 34 warning nullable e Test Explorer ha un timeout, mentre dotnet test funziona. Prossimi passi pianificati: warning nullable, catch vuoti, test di ConfigurazioneService, ImmaginiService e solo eventualmente MVVM.
+- Nella presentazione delle squadre, il nome completo sotto la foto deve rimanere invariato; va uniformata solo la lista laterale dei giocatori alla formattazione del tabellone principale.
+- Quando viene richiesta una preview grafica dei colori, visualizza la schermata di presentazione delle rose con foto centrale, liste laterali e staff in basso, non il tabellone principale.

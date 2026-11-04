@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="650" viewBox="0 0 1000 650">
+  <defs>
+	<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+	  <stop offset="0" stop-color="#0B1020"/>
+	  <stop offset="1" stop-color="#111A31"/>
+	</linearGradient>
+	<linearGradient id="photo" x1="0" y1="0" x2="1" y2="1">
+	  <stop offset="0" stop-color="#243A63"/>
+	  <stop offset="1" stop-color="#151D33"/>
+	</linearGradient>
+	<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+	  <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#000000" flood-opacity=".4"/>
+	</filter>
+  </defs>
+
+  <rect width="1000" height="650" fill="url(#bg)"/>
+
+  <text x="500" y="46" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600" letter-spacing="3" text-anchor="middle">PRESENTAZIONE ROSA</text>
+  <text x="500" y="86" fill="#F5F7FA" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" text-anchor="middle">SQUADRA BLU</text>
+  <line x1="350" y1="104" x2="650" y2="104" stroke="#4DA3FF" stroke-width="3"/>
+
+  <!-- Colonna sinistra -->
+  <rect x="24" y="125" width="235" height="490" rx="12" fill="#151D33" stroke="#344568" stroke-width="2" filter="url(#shadow)"/>
+  <text x="48" y="158" fill="#8EC5FF" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">GIOCATORI</text>
+  <g font-family="Segoe UI, sans-serif" font-size="17">
+	<text x="50" y="198" fill="#F5F7FA"><tspan fill="#8EC5FF" font-weight="700">7</tspan><tspan dx="18">Rossi M.</tspan></text>
+	<text x="50" y="238" fill="#F5F7FA"><tspan fill="#8EC5FF" font-weight="700">10</tspan><tspan dx="10">Bianchi L.</tspan></text>
+	<text x="50" y="278" fill="#F5F7FA"><tspan fill="#8EC5FF" font-weight="700">4</tspan><tspan dx="18">Verdi A.</tspan></text>
+	<text x="50" y="318" fill="#F5F7FA"><tspan fill="#8EC5FF" font-weight="700">12</tspan><tspan dx="10">Neri G.</tspan></text>
+	<text x="50" y="358" fill="#38D9A9"><tspan font-weight="700">1</tspan><tspan dx="18">Ferrari S.</tspan></text>
+  </g>
+  <line x1="48" y1="552" x2="235" y2="552" stroke="#344568"/>
+  <text x="50" y="579" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">STAFF</text>
+  <text x="50" y="601" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="15">Coach Bianchi</text>
+
+  <!-- Colonna destra -->
+  <rect x="741" y="125" width="235" height="490" rx="12" fill="#151D33" stroke="#344568" stroke-width="2" filter="url(#shadow)"/>
+  <text x="952" y="158" fill="#8EC5FF" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" text-anchor="end">GIOCATORI</text>
+  <g font-family="Segoe UI, sans-serif" font-size="17" text-anchor="end">
+	<text x="950" y="198" fill="#F5F7FA"><tspan>Rossi M.</tspan><tspan dx="18" fill="#8EC5FF" font-weight="700">7</tspan></text>
+	<text x="950" y="238" fill="#F5F7FA"><tspan>Bianchi L.</tspan><tspan dx="18" fill="#8EC5FF" font-weight="700">10</tspan></text>
+	<text x="950" y="278" fill="#F5F7FA"><tspan>Verdi A.</tspan><tspan dx="18" fill="#8EC5FF" font-weight="700">4</tspan></text>
+	<text x="950" y="318" fill="#F5F7FA"><tspan>Neri G.</tspan><tspan dx="18" fill="#8EC5FF" font-weight="700">12</tspan></text>
+	<text x="950" y="358" fill="#38D9A9"><tspan>Ferrari S.</tspan><tspan dx="18" font-weight="700">1</tspan></text>
+  </g>
+  <line x1="765" y1="552" x2="952" y2="552" stroke="#344568"/>
+  <text x="950" y="579" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">STAFF</text>
+  <text x="950" y="601" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="15" text-anchor="end">Coach Bianchi</text>
+
+  <!-- Area centrale -->
+  <rect x="314" y="125" width="372" height="390" rx="14" fill="#151D33" stroke="#344568" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="335" y="146" width="330" height="300" rx="10" fill="url(#photo)" stroke="#4A638F" stroke-width="2"/>
+  <circle cx="500" cy="255" r="72" fill="#344D78"/>
+  <circle cx="500" cy="235" r="27" fill="#A9B7D0"/>
+  <path d="M445 330 Q500 275 555 330 L570 400 L430 400 Z" fill="#4DA3FF"/>
+  <text x="500" y="420" fill="#A9B7D0" font-family="Segoe UI, sans-serif" font-size="12" text-anchor="middle" letter-spacing="1">FOTO GIOCATORE</text>
+  <text x="500" y="480" fill="#F5F7FA" font-family="Segoe UI, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Mario Rossi</text>
+  <text x="500" y="551" fill="#FFB547" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600" text-anchor="middle">PRESENTAZIONE IN CORSO</text>
+</svg>
